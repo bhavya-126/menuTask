@@ -1,0 +1,25 @@
+<div id="allIngredients">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ingredient of ingredients">
+        <td>{{ ingredient.id }}</td>
+        <td>{{ ingredient.name }}</td>
+        <td>{{ ingredient.quantity }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="Edit(ingredient.id)">
+            Add Quantity
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button class="btn btn-primary" (click)="add()">Add</button>

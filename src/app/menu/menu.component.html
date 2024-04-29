@@ -1,0 +1,11 @@
+<ol>
+  <li *ngFor="let recipe of recipeList | filterRecepies : ingredientList">
+    {{ recipe.name }}
+    <img
+      *ngIf="recipe.imageUrl"
+      [src]="recipe.imageUrl"
+      alt=""
+      height="100px"
+    />
+  </li>
+</ol>

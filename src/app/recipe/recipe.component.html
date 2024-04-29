@@ -1,0 +1,17 @@
+<div *ngFor="let recipe of recipes">
+  <h1>{{ recipe.name }}</h1>
+  <img *ngIf="recipe.imageUrl" [src]="recipe.imageUrl" alt="" height="100px" />
+  <table>
+    <thead>
+      <th>Ingredient</th>
+      <th>Quantity</th>
+    </thead>
+    <tbody *ngFor="let ingredient of recipe.ingredients">
+      <td>{{ ingredientList[ingredient.ingredient].name }}</td>
+      <td>{{ ingredient.quantity }}</td>
+    </tbody>
+  </table>
+  <button class="btn btn-primary" (click)="edit(recipe.id)">edit</button>
+</div>
+<br>
+<button class="btn btn-primary" (click)="addReipe()">add new Recipe</button>

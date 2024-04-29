@@ -1,0 +1,63 @@
+<div id="form">
+  <form action="">
+    <form>
+      <div class="mb-3">
+        <label for="recipeName" class="form-label">Name</label>
+        <input
+          type="email"
+          class="form-control"
+          id="recipeName"
+          name="recipeName"
+          [(ngModel)]="recipeName"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="recipeIng" class="form-label">Ingredient</label>
+        <select name="ingredient" id="recipeIng" [(ngModel)]="recipeId">
+          <option
+            id="recipeIng"
+            *ngFor="let ingredient of ingredients "
+            value="{{ ingredient.id }}"
+          >
+            {{ ingredient.name }}
+          </option>
+        </select>
+        <input
+          type="number"
+          name="quantity"
+          min="0"
+          [(ngModel)]="recipeIngQuantity"
+        />
+        <button type="submit" class="btn btn-primary" (click)="addIng()">
+          add Ingredient
+        </button>
+
+        <table *ngIf="recipeIngredients.length">
+          <thead>
+            <th>Name</th>
+            <th>Quantity</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ing of recipeIngredients">
+              <td>{{ ingredients[ing.ingredient].name }}</td>
+              <td>{{ ing.quantity }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mb-3 form-check">
+        <label for="imageUrl">Image</label>
+        <input
+          id="imageUrl"
+          name="imageUrl"
+          type="text"
+          [(ngModel)]="imageUrl"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="addRecipe()">
+        Submit
+      </button>
+      <p *ngIf="errMsg">{{ errMsg }}</p>
+    </form>
+  </form>
+</div>
