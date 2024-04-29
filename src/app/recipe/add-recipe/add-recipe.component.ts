@@ -34,15 +34,20 @@ export class AddRecipeComponent {
   imageUrl: string = this.selectedId ? this.selectedRecipe.imageUrl : '';
   router: Router = inject(Router);
   errMsg: string = '';
+  // selectIngredients= [...this.ingredients];
   addIng() { 
     if (!this.recipeId || !this.recipeIngQuantity) {    // selection of ingredients
       this.errMsg = 'must select name and quantity of ingredient';
       return;
     }
+    let ing = this.recipeIngredients.find((ing)=> ing.ingredient === (this.recipeId-1));
+    if(ing){
+      ing.quantity += this.recipeIngQuantity;
+    }else{
     this.recipeIngredients.push({  // adding ingredient in recipe
-      ingredient: this.recipeId,
+      ingredient: this.recipeId -1,
       quantity: this.recipeIngQuantity,
-    });
+    });}
     this.errMsg = '';
   }
   addRecipe() {

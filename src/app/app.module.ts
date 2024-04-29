@@ -13,6 +13,7 @@ import { AddIngredientComponent } from './ingredients/add-ingredient/add-ingredi
 import { AddRecipeComponent } from './recipe/add-recipe/add-recipe.component';
 import { FilterRecepiesPipe } from './customPipes/filter-recepies.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NotSelectedIngredientPipe } from './customPipes/not-selected-ingredient.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AddIngredientComponent,
     AddRecipeComponent,
     FilterRecepiesPipe,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NotSelectedIngredientPipe
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes), FormsModule

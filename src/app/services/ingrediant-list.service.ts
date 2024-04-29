@@ -7,11 +7,11 @@ import { Ingredient } from '../interface/ingredient';
 export class IngrediantListService {
   constructor() {}
   ingrediants: Ingredient[] = [
-    { id: 0, name: 'Flour', quantity: 500 },
-    { id: 1, name: 'Sugar', quantity: 200 },
-    { id: 2, name: 'Milk', quantity: 300 },
-    { id: 3, name: 'Eggs', quantity: 6 },
-    { id: 4, name: 'Butter', quantity: 100 },
+    { id: 1, name: 'Flour', quantity: 500 },
+    { id: 2, name: 'Sugar', quantity: 200 },
+    { id: 3, name: 'Milk', quantity: 300 },
+    { id: 4, name: 'Eggs', quantity: 6 },
+    { id: 5, name: 'Butter', quantity: 100 },
     // Add more ingredients as needed
   ];
   getIngrediants() {

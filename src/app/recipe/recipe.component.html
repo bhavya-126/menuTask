@@ -6,7 +6,7 @@
       <th>Ingredient</th>
       <th>Quantity</th>
     </thead>
-    <tbody *ngFor="let ingredient of recipe.ingredients">
+    <tbody *ngFor="let ingredient of recipe.ingredients ">
       <td>{{ ingredientList[ingredient.ingredient].name }}</td>
       <td>{{ ingredient.quantity }}</td>
     </tbody>

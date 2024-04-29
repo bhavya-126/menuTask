@@ -16,21 +16,32 @@ export class AddIngredientComponent {
   router: Router = inject(Router);
   ingredients: Ingredient[] = this.ingredientService.getIngrediants(); //list of ingedients
   paramId: number = +this.activeRoute.snapshot.queryParamMap.get('id'); // id of an ingredient which we want to edit
-  selectedIng: Ingredient = this.ingredients.find( // ingredient which is selected for editing
+  selectedIng: Ingredient = this.ingredients.find(
+    // ingredient which is selected for editing
     (item) => item.id === this.paramId
   );
-  ingName: string = this.selectedIng ? this.selectedIng.name : ''; // data bound property for name of ingredient
+  ingName: string =  ''; // data bound property for name of ingredient
   ingQuantity: number = 0; // data bound property for quantity of ingredient
   requiredMsg = ''; // required msg
+  previousQuantity:number;
+  ngOnInit(){
+    if(this.selectedIng){
+      this.ingName =  this.selectedIng.name;
+      this.previousQuantity = this.selectedIng.quantity;
+    }
+  }
   add() {
-    if (!this.ingName || !this.ingQuantity) { // if we try to add ingredient without its name and quantity
+    if (!this.ingName || !this.ingQuantity) {
+      // if we try to add ingredient without its name and quantity
       this.requiredMsg = 'required to fill name and qunatity of ingrediant';
       return;
     }
-    if (this.selectedIng) { // if we are editing ingredient values
+    if (this.selectedIng) {
+      // if we are editing ingredient values
       this.selectedIng.quantity += this.ingQuantity;
-    } else { 
+    } else {
       this.ingredientService.addIngrediants(this.ingName, this.ingQuantity);
+      console.log(this.ingredientService.ingrediants);
     }
     this.router.navigate(['/Ingredient']); // navigae to the ingredient page after adding or updating any ingredient
   }
