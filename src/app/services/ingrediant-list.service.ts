@@ -24,5 +24,6 @@ export class IngrediantListService {
     }else{
       this.ingrediants.push({id:(this.ingrediants.length+1), name:name, quantity:quantity});
     }
+    this.ingrediants=[...this.ingrediants]
   }
 }

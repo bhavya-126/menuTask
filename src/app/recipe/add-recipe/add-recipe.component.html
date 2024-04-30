@@ -16,7 +16,7 @@
         <select name="ingredient" id="recipeIng" [(ngModel)]="recipeId">
           <option
             id="recipeIng"
-            *ngFor="let ingredient of ingredients"
+            *ngFor="let ingredient of selectIngredients"
             value="{{ ingredient.id }}"
           >
             {{ ingredient.name }}
