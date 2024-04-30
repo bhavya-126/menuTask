@@ -36,6 +36,10 @@ export class AddIngredientComponent {
       this.requiredMsg = 'required to fill name and qunatity of ingrediant';
       return;
     }
+    if(this.ingQuantity<=0){
+      this.requiredMsg = 'quantity must be a positive number';
+      return;
+    }
     if (this.selectedIng) {
       // if we are editing ingredient values
       this.selectedIng.quantity += this.ingQuantity;

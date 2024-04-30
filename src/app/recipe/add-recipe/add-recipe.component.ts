@@ -46,6 +46,10 @@ export class AddRecipeComponent {
       this.errMsg = 'must select name and quantity of ingredient';
       return;
     }
+    if(this.recipeIngQuantity<=0){
+      this.errMsg='quantity must be a positive number'
+      return
+    }
     let ing = this.recipeIngredients.find(
       (ing) => ing.ingredient === this.recipeId - 1
     );
